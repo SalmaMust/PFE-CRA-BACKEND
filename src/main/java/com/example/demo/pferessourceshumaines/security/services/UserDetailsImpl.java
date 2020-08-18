@@ -20,18 +20,25 @@ public class UserDetailsImpl implements UserDetails {
 
     private String email;
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    private String role;
 
     @JsonIgnore
     private String password;
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserDetailsImpl(Long id, String username, String email, String password,
+    public UserDetailsImpl(Long id, String username, String email, String password,String role,
                            Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.role=role;
+
         this.authorities = authorities;
     }
 
@@ -45,6 +52,7 @@ public class UserDetailsImpl implements UserDetails {
                 user.getUsername(),
                 user.getEmail(),
                 user.getPassword(),
+                user.getRole(),
                 authorities);
     }
 
@@ -99,5 +107,8 @@ public class UserDetailsImpl implements UserDetails {
             return false;
         UserDetailsImpl user = (UserDetailsImpl) o;
         return Objects.equals(id, user.id);
+    }
+    public String getRole() {
+        return role;
     }
 }

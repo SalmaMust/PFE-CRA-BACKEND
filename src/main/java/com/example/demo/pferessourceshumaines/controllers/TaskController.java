@@ -39,6 +39,7 @@ public class TaskController {
         task.setTaskName(taskDetails.getTaskName());
         task.setDate(taskDetails.getDate());
         task.setStatus(taskDetails.getStatus());
+        task.setPriorite(taskDetails.getPriorite());
 
 
         final Task updatedTask = taskRepository.save(task);
@@ -64,7 +65,12 @@ public class TaskController {
         response.put("deleted", Boolean.TRUE);
         return response;
     }
-
+    @GetMapping("/{id}/usertasks")
+    public ResponseEntity<List<Task>> getTaskByUserId(@PathVariable(value = "id") Long userId) {
+        List<Task> tasks = taskRepository.getTaskByUserId(userId);
+        // .orElseThrow(() -> new ResourceNotFoundException("task not found for this id :: " + userId));
+        return ResponseEntity.ok().body(tasks);
+    }
 }
 
 

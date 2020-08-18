@@ -1,7 +1,6 @@
 package com.example.demo.pferessourceshumaines.models.entity;
 
-import com.example.demo.pferessourceshumaines.models.entity.Role;
-
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -42,6 +41,13 @@ public class User {
     private String poste;
 
     private String phone;
+private Date date;
+private String address;
+private Date birthday;
+private String gendar;
+private String about;
+    private String role;
+
 
 
     @ManyToMany (fetch =FetchType.LAZY)
@@ -55,7 +61,7 @@ public class User {
     }
 
 
-    public User(@NotBlank @Size(max = 20) String username, @NotBlank @Size(max = 50) @Email String email, @NotBlank @Size(max = 120) String password, String lastname, String firstname, String poste, String phone, Set<Role> roles) {
+    public User(@NotBlank @Size(max = 20) String username, @NotBlank @Size(max = 50) @Email String email, @NotBlank @Size(max = 120) String password, String lastname, String firstname, String poste, String phone, Date date, String address, Date birthday, String gendar, String about, String role, Set<Role> roles) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -63,7 +69,14 @@ public class User {
         this.firstname = firstname;
         this.poste = poste;
         this.phone = phone;
+        this.date = date;
+        this.address = address;
+        this.birthday = birthday;
+        this.gendar = gendar;
+        this.about = about;
+        this.role = role;
         this.roles = roles;
+
     }
 
     public User(String username, String email, String encode) {
@@ -140,5 +153,52 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getGendar() {
+        return gendar;
+    }
+
+    public void setGendar(String gendar) {
+        this.gendar = gendar;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
     }
 }

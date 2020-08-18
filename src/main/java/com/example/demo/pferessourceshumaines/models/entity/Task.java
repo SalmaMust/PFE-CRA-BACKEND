@@ -11,6 +11,7 @@ public class Task {
     private String taskName;
     private Date date;
     private String status;
+    private String priorite;
     public Project getProject() {
         return project;
     }
@@ -38,10 +39,11 @@ public class Task {
 
 
 
-    public Task(String taskName, Date date, String status, Project project, User user) {
+    public Task(String taskName, Date date, String status, String priorite, Project project, User user) {
         this.taskName = taskName;
         this.date = date;
         this.status = status;
+        this.priorite = priorite;
         this.project = project;
         this.user = user;
     }
@@ -76,5 +78,13 @@ public class Task {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getPriorite() {
+        return priorite;
+    }
+
+    public void setPriorite(String priorite) {
+        this.priorite = priorite;
     }
 }

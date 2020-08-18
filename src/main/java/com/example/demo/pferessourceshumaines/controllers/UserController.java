@@ -47,6 +47,17 @@ public class UserController {
             user.setEmail(userDetails.getEmail());
             user.setLastname(userDetails.getLastname());
             user.setFirstname(userDetails.getFirstname());
+            user.setUsername(userDetails.getUsername());
+            user.setPassword(userDetails.getPassword());
+            user.setPhone(userDetails.getPhone());
+            user.setPoste(userDetails.getPoste());
+            user.setRoles(userDetails.getRoles());
+            user.setDate(userDetails.getDate());
+            user.setGendar(userDetails.getGendar());
+            user.setAddress(userDetails.getAddress());
+            user.setBirthday(userDetails.getBirthday());
+            user.setAbout(userDetails.getAbout());
+
             final User updatedUser = userRepository.save(user);
             return ResponseEntity.ok(updatedUser);
         }

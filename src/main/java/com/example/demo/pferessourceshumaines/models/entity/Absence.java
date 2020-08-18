@@ -1,11 +1,8 @@
 package com.example.demo.pferessourceshumaines.models.entity;
 
 import com.example.demo.pferessourceshumaines.models.enumeration.TypeAbsence;
-import javax.persistence.Id;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -19,7 +16,10 @@ public class Absence {
     private Date endDate;
     private String type;
     private String status;
+    private String reason;
 
+    @ManyToOne
+    private  User user;
 
     public String getStatus() {
         return status;
@@ -29,7 +29,14 @@ public class Absence {
         this.status = status;
     }
 
-
+    public Absence(Date startDate, Date endDate, String type, String status, String reason, User user) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.type = type;
+        this.status = status;
+        this.reason = reason;
+        this.user = user;
+    }
 
     public Absence() {
     }
@@ -64,5 +71,21 @@ public class Absence {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

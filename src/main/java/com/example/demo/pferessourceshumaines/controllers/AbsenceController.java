@@ -41,6 +41,7 @@ public class AbsenceController {
         absence.setStartDate(absenceDetails.getStartDate());
         absence.setEndDate(absenceDetails.getEndDate());
         absence.setStatus(absenceDetails.getStatus());
+        absence.setReason(absenceDetails.getReason());
         final Absence updatedAbsence = absenceRepository.save(absence);
         return ResponseEntity.ok(updatedAbsence);
     }
@@ -62,5 +63,11 @@ public class AbsenceController {
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);
         return response;
+    }
+    @GetMapping("/{id}/userabsences")
+    public ResponseEntity<List<Absence>> getAbsenceByUserId(@PathVariable(value = "id") Long userId) {
+        List<Absence> absences = absenceRepository.getAbsenceByUserId(userId);
+        // .orElseThrow(() -> new ResourceNotFoundException("task not found for this id :: " + userId));
+        return ResponseEntity.ok().body(absences);
     }
 }

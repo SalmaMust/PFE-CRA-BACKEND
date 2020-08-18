@@ -12,17 +12,24 @@ public class Project {
     private String description;
     private Date dateDebut;
     private Date dateFin;
+    private String type;
+    private String status;
+    private String priorite;
+
     @ManyToOne
     private Client client;
 
     public Project() {
     }
 
-    public Project(String projectName, String description, Date dateDebut, Date dateFin, Client client) {
+    public Project(String projectName, String description, Date dateDebut, Date dateFin, String type, String status, String priorite, Client client) {
         this.projectName = projectName;
         this.description = description;
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
+        this.type = type;
+        this.status = status;
+        this.priorite = priorite;
         this.client = client;
     }
 
@@ -66,7 +73,31 @@ public class Project {
         this.description = description;
     }
 
-   public Client getClient() {
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getPriorite() {
+        return priorite;
+    }
+
+    public void setPriorite(String priorite) {
+        this.priorite = priorite;
+    }
+
+    public Client getClient() {
         return client;
     }
 

@@ -43,6 +43,9 @@ public class ProjectController {
         project.setDescription(projectDetails.getDescription());
         project.setDateDebut(projectDetails.getDateDebut());
         project.setDateFin(projectDetails.getDateFin());
+        project.setStatus(projectDetails.getStatus());
+        project.setType(projectDetails.getType());
+        project.setPriorite(projectDetails.getPriorite());
         final Project updatedProject = projectRepository.save(project);
         return ResponseEntity.ok(updatedProject);
     }
