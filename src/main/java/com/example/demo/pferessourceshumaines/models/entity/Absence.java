@@ -1,6 +1,5 @@
 package com.example.demo.pferessourceshumaines.models.entity;
 
-import com.example.demo.pferessourceshumaines.models.enumeration.TypeAbsence;
 
 import javax.persistence.*;
 import java.util.Date;
