@@ -40,6 +40,7 @@ public class TaskController {
         task.setDate(taskDetails.getDate());
         task.setStatus(taskDetails.getStatus());
         task.setPriorite(taskDetails.getPriorite());
+        task.setDescription(taskDetails.getDescription());
 
 
         final Task updatedTask = taskRepository.save(task);

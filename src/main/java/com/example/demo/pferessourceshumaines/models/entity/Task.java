@@ -12,6 +12,10 @@ public class Task {
     private Date date;
     private String status;
     private String priorite;
+
+
+
+    private String description;
     public Project getProject() {
         return project;
     }
@@ -39,13 +43,15 @@ public class Task {
 
 
 
-    public Task(String taskName, Date date, String status, String priorite, Project project, User user) {
+    public Task(String taskName,String description, Date date, String status, String priorite, Project project, User user) {
         this.taskName = taskName;
         this.date = date;
         this.status = status;
         this.priorite = priorite;
         this.project = project;
         this.user = user;
+        this.description = description;
+
     }
 
     public Long getId() {
@@ -86,5 +92,13 @@ public class Task {
 
     public void setPriorite(String priorite) {
         this.priorite = priorite;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
