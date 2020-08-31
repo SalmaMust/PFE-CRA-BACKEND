@@ -1,9 +1,6 @@
 package com.example.demo.pferessourceshumaines.models.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
@@ -18,6 +15,11 @@ public class Internal {
 
     @NotBlank
     private String duration ;
+
+    private String categorie;
+
+    @ManyToOne
+    private Timesheet timesheet;
 
     public  Internal(){
 
@@ -50,5 +52,21 @@ public class Internal {
 
     public void setDuration(String duration) {
         this.duration = duration;
+    }
+
+    public Timesheet getTimesheet() {
+        return timesheet;
+    }
+
+    public void setTimesheet(Timesheet timesheet) {
+        this.timesheet = timesheet;
+    }
+
+    public String getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
     }
 }

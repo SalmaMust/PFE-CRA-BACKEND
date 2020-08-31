@@ -2,6 +2,7 @@ package com.example.demo.pferessourceshumaines.models.entity;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -41,11 +42,11 @@ public class User {
     private String poste;
 
     private String phone;
-private Date date;
-private String address;
-private Date birthday;
-private String gendar;
-private String about;
+    private Date date;
+    private String address;
+    private Date birthday;
+    private String gendar;
+    private String about;
     private String role;
 
 
@@ -55,6 +56,26 @@ private String about;
                joinColumns = @JoinColumn(name = "user_id"),
                inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
+
+    public User getManager() {
+        return manager;
+    }
+
+    public void setManager(User manager) {
+        this.manager = manager;
+    }
+
+    @ManyToOne
+    private User manager;
+
+    @OneToMany
+    private List<Task> taskList;
+
+    @OneToMany
+    private List<Absence> absenceList;
+
+    @OneToMany
+    private List<Timesheet> timesheetList;
 
     public User(){
 
@@ -200,5 +221,29 @@ private String about;
 
     public void setAbout(String about) {
         this.about = about;
+    }
+
+    public List<Task> getTaskList() {
+        return taskList;
+    }
+
+    public void setTaskList(List<Task> taskList) {
+        this.taskList = taskList;
+    }
+
+    public List<Absence> getAbsenceList() {
+        return absenceList;
+    }
+
+    public void setAbsenceList(List<Absence> absenceList) {
+        this.absenceList = absenceList;
+    }
+
+    public List<Timesheet> getTimesheetList() {
+        return timesheetList;
+    }
+
+    public void setTimesheetList(List<Timesheet> timesheetList) {
+        this.timesheetList = timesheetList;
     }
 }

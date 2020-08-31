@@ -1,11 +1,9 @@
 package com.example.demo.pferessourceshumaines.models.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Timesheet {
@@ -36,7 +34,20 @@ public class Timesheet {
     private Long totalProduction;
 
     @NotBlank
+    private Long totalIntern;
+    @NotBlank
     private int totalAbsence;
+
+    private String Status;
+
+    @OneToMany
+    private List<Production> productionList;
+
+    @OneToMany
+    private List<Internal> interneList;
+
+    @ManyToOne
+    private User user;
 
     public Timesheet(){
 
@@ -123,6 +134,46 @@ public class Timesheet {
 
     public void setTotalAbsence(int totalAbsence) {
         this.totalAbsence = totalAbsence;
+    }
+
+    public List<Production> getProductionList() {
+        return productionList;
+    }
+
+    public List<Internal> getInterneList() {
+        return interneList;
+    }
+
+    public void setProductionList(List<Production> productionList) {
+        this.productionList = productionList;
+    }
+
+    public void setInterneList(List<Internal> interneList) {
+        this.interneList = interneList;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Long getTotalIntern() {
+        return totalIntern;
+    }
+
+    public void setTotalIntern(Long totalIntern) {
+        this.totalIntern = totalIntern;
+    }
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
     }
 }
 

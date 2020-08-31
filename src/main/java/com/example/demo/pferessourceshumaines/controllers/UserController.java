@@ -25,6 +25,11 @@ public class UserController {
             return userRepository.findAll();
         }
 
+        @GetMapping("/managers")
+        public List<User> getAllManagers() {
+        return userRepository.getAllByRole("Manager");
+    }
+
         @GetMapping("/users/{id}")
         public ResponseEntity<User> getUserById(@PathVariable(value = "id") Long userId)
             throws ResourceNotFoundException {
@@ -73,5 +78,10 @@ public class UserController {
             response.put("deleted", Boolean.TRUE);
             return response;
         }
+
+    @GetMapping("/users/{id}/employes")
+    public List<User> getAllUsersByManager(@PathVariable(value = "id") Long managerId) {
+        return userRepository.findAllByManagerId(managerId);
+    }
     }
 

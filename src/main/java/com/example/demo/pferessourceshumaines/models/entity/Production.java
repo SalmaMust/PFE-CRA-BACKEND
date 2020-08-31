@@ -1,9 +1,6 @@
 package com.example.demo.pferessourceshumaines.models.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
@@ -19,6 +16,12 @@ public class Production {
 
     @NotBlank
     private String duration ;
+
+    @ManyToOne
+    private Timesheet timesheet;
+
+    @ManyToOne
+    private Task tache;
 
     public Production(){
     }
@@ -50,5 +53,21 @@ public class Production {
 
     public void setDuration(String duration) {
         this.duration = duration;
+    }
+
+    public Timesheet getTimesheet() {
+        return timesheet;
+    }
+
+    public void setTimesheet(Timesheet timesheet) {
+        this.timesheet = timesheet;
+    }
+
+    public Task getTache() {
+        return tache;
+    }
+
+    public void setTache(Task tache) {
+        this.tache = tache;
     }
 }

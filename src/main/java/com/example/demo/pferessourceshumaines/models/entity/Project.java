@@ -15,9 +15,21 @@ public class Project {
     private String type;
     private String status;
     private String priorite;
+    @ManyToOne
+    private User responsable;
 
     @ManyToOne
     private Client client;
+
+    public User getResponsable() {
+        return responsable;
+    }
+
+    public void setResponsable(User responsable) {
+        this.responsable = responsable;
+    }
+
+
 
     public Project() {
     }

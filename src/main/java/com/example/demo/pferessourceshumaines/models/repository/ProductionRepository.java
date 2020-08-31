@@ -4,6 +4,10 @@ import com.example.demo.pferessourceshumaines.models.entity.Production;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 
 public interface ProductionRepository extends  JpaRepository <Production , Long> {
+
+    public List<Production> findAllByTimesheetId(Long id);
 }
