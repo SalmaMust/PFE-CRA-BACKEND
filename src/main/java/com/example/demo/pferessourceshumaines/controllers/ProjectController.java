@@ -69,7 +69,11 @@ public class ProjectController {
         response.put("deleted", Boolean.TRUE);
         return response;
     }
-
+   // @GetMapping("/bymanager/{id}")
+    //public List<Project> getProjectsByManagerId(@PathVariable(value = "id") Long managerId) {
+       // return projectRepository.findAllByManagerId(managerId
+     //   );
+    //}
 }
 
 

@@ -82,5 +82,10 @@ public class TimesheetController {
         return timesheetRepository.findAll();
     }
 
+    @GetMapping("/byuser/{id}")
+    public List<Timesheet> getTimesheetsByUserId(@PathVariable(value = "id") Long userId) {
+        return timesheetRepository.findAllByUserId(userId);
+    }
+
 
 }
